@@ -38,6 +38,8 @@ void	print_low(t_fdf *fdf, t_double_point *first, \
 		color -= 280;
 		d = d + 2 * diff->y;
 	}
+	free(diff);
+	free(point);
 }
 
 void	print_high(t_fdf *fdf, t_double_point *first, \
@@ -66,6 +68,8 @@ void	print_high(t_fdf *fdf, t_double_point *first, \
 		color -= 280;
 		d = d + 2 * diff->x;
 	}
+	free(diff);
+	free(point);
 }
 
 void	printline(t_fdf *fdf)

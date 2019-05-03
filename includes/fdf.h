@@ -62,16 +62,14 @@ void				printline(t_fdf *fdf);
 void				print_figure(t_fdf *fdf);
 
 /*
-** utils below
+**	Utils
 */
 
 int					ft_list_size(t_list *list);
 t_list				*list_append(t_list *matrix, char *str);
 int					find_len(char *s);
-/*
-** delete below later
-*/
-
-int					mouse_release(int button, int x, int y, t_fdf *fdf);
+void				ft_clean_list(t_list **list);
+void				ft_clean_t_point_matrix(t_point	****arr, int height, int width);
+void				ft_clean_and_exit(t_fdf *fdf);
 
 #endif

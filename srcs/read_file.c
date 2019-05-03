@@ -79,8 +79,11 @@ void	read_file(t_fdf *fdf, char *str)
 		ft_strdel(&line);
 	}
 	move_to_int(matrix, fdf);
+	ft_clean_list(&matrix);
 	save_data_in_stock(fdf);
+	ft_clean_int_arr(&fdf->num);
 	make_modified(fdf);
 	print_figure(fdf);
+	ft_clean_t_point_matrix(&fdf->xyz_modif, fdf->height, fdf->width);
 	close(fd);
 }

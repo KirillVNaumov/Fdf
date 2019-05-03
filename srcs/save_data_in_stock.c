@@ -19,11 +19,11 @@ void	save_data_in_stock(t_fdf *fdf)
 
 	i = 0;
 	j = 0;
-	fdf->xyz_stock = malloc(sizeof(t_point*) * (fdf->height + 5));
+	fdf->xyz_stock = malloc(sizeof(t_point**) * (fdf->height + 1));
 	fdf->xyz_stock[fdf->height] = NULL;
 	while (i < fdf->height)
 	{
-		fdf->xyz_stock[i] = malloc(sizeof(t_point) * (fdf->width + 5));
+		fdf->xyz_stock[i] = malloc(sizeof(t_point*) * (fdf->width + 1));
 		j = 0;
 		while (j < fdf->width)
 		{
@@ -36,6 +36,7 @@ void	save_data_in_stock(t_fdf *fdf)
 			fdf->xyz_stock[i][j]->z *= 10;
 			j++;
 		}
+		fdf->xyz_stock[i][j] = NULL;
 		i++;
 	}
 }

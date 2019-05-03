@@ -19,11 +19,11 @@ void	make_modified(t_fdf *fdf)
 
 	i = 0;
 	j = 0;
-	fdf->xyz_modif = malloc(sizeof(t_point*) * (fdf->height + 5));
+	fdf->xyz_modif = malloc(sizeof(t_point**) * (fdf->height + 1));
 	fdf->xyz_modif[fdf->height] = NULL;
 	while (i < fdf->height)
 	{
-		fdf->xyz_modif[i] = malloc(sizeof(t_point) * (fdf->width + 5));
+		fdf->xyz_modif[i] = malloc(sizeof(t_point*) * (fdf->width + 1));
 		j = 0;
 		while (j < fdf->width)
 		{
@@ -35,6 +35,7 @@ void	make_modified(t_fdf *fdf)
 				- fdf->xyz_stock[i][j]->z);
 			j++;
 		}
+		fdf->xyz_stock[i][j] = NULL;
 		i++;
 	}
 }

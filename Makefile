@@ -5,6 +5,7 @@ LIBFT = libft/libft.a
 
 SRCS =	./srcs/assign_to_zero.c \
 		./srcs/exit_fn.c \
+		./srcs/ft_clean.c \
 		./srcs/fdf.c \
 		./srcs/find_len.c \
 		./srcs/line_drawing.c \
@@ -29,7 +30,7 @@ BLUE_EXTRA = \033[1;36m
 
 %.o:%.c
 	@echo "$(GREEN) - Creating $(GREEN_EXTRA)$<...$(RESET)"
-	@gcc -Wall -Wextra -Werror -c $< -o $@ $(INCLUDES)
+	@gcc -Wall -Wextra -Werror -g -c $< -o $@ $(INCLUDES)
 
 all: $(EXEC)
 
@@ -37,7 +38,7 @@ $(EXEC): $(OBJ)
 	@echo "$(GREEN)Making objects files for $(GREEN_EXTRA)$(EXEC)$(RESET)"
 	@make -C libft
 	@echo "$(GREEN)Compiling executable $(GREEN_EXTRA)$(EXEC)$(RESET)"
-	@gcc -Wall -Wextra -Werror $(OBJ) $(LIBFT) $(INCLUDES) $(MINILIBX_INCLUDES) -L minilibx_macos -lmlx -framework OpenGL -framework AppKit -fsanitize=address -fsanitize=undefined -g -o $(EXEC)
+	@gcc -Wall -Wextra -Werror $(OBJ) $(LIBFT) $(INCLUDES) $(MINILIBX_INCLUDES) -L minilibx_macos -lmlx -framework OpenGL -framework AppKit -g -o $(EXEC)
 	@echo "$(BLUE_EXTRA)$(EXEC)$(BLUE): Complete$(RESET)"
 
 clean:

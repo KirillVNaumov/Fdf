@@ -96,8 +96,8 @@ int		exit_fn(int key, t_fdf *fdf, int i)
 	(key == 29) ? apl_minus(fdf) : (i = 0);
 	if (key == 42 || key == 126 || key == 125 || key == 123 || \
 		key == 124 || key == 27 || key == 25 || key == 24 || key == 29)
-		mlx_clear_window(fdf->mlx, fdf->win);
-	(key == 53) ? ft_clean_and_exit(fdf) : (i = 0);
+		mlx_clear_wi ndow(fdf->mlx, fdf->win);
+	(key == 53) ? exit(1) : (i = 0);
 	(key == 126) ? fdf->angle->x += 0.1 : (i = 0);
 	(key == 126) ? fdf->angle->y += 0.1 : (i = 0);
 	(key == 125 || key == 123) ? fdf->angle->x -= 0.1 : (i = 0);
@@ -107,7 +107,7 @@ int		exit_fn(int key, t_fdf *fdf, int i)
 	{
 		make_modified(fdf);
 		print_figure(fdf);
-		ft_clean_t_point_matrix(&fdf->xyz_modif, fdf->height, fdf->width);
+		ft_clean_t_point_matrix(&fdf->xyz_modif);
 	}
 	return (0);
 }
