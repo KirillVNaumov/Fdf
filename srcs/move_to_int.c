@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_to_int.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amelikia <amelikia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/10 13:07:42 by amelikia          #+#    #+#             */
-/*   Updated: 2018/12/10 13:20:27 by amelikia         ###   ########.fr       */
+/*   Created: 2019/05/06 12:41:18 by knaumov           #+#    #+#             */
+/*   Updated: 2019/05/06 12:41:20 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ void	move_to_int(t_list *matrix, t_fdf *fdf)
 	fdf->height = list_size;
 	fdf->num = (int**)malloc(sizeof(int*) * (list_size + 1));
 	fdf->num[list_size] = NULL;
-	fdf->width = find_len(matrix->line);
+	fdf->width = find_width(matrix->line);
 	copy_data(matrix, fdf);
 }

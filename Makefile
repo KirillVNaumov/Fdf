@@ -5,18 +5,20 @@ LIBFT = libft/libft.a
 
 SRCS =	./srcs/assign_to_zero.c \
 		./srcs/exit_fn.c \
-		./srcs/ft_clean.c \
 		./srcs/fdf.c \
-		./srcs/find_len.c \
 		./srcs/line_drawing.c \
-		./srcs/list_append.c \
-		./srcs/list_size.c \
 		./srcs/make_modified.c \
 		./srcs/move_to_int.c \
 		./srcs/read_file.c \
 		./srcs/save_data_in_stock.c
 
-OBJ = $(SRCS:.c=.o)
+UTILS = ./utils/struct_operations/t_list.c \
+		./utils/find_width.c \
+		./utils/ft_clean.c
+
+OBJ_SRCS = $(SRCS:.c=.o)
+OBJ_UTILS = $(UTILS:.c=.o)
+OBJ = $(OBJ_SRCS) $(OBJ_UTILS)
 
 EXEC = fdf
 

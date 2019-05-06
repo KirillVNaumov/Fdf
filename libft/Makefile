@@ -6,7 +6,7 @@
 #    By: knaumov <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 09:50:35 by knaumov           #+#    #+#              #
-#    Updated: 2019/04/24 21:21:07 by knaumov          ###   ########.fr        #
+#    Updated: 2019/05/06 12:32:42 by knaumov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,6 +86,7 @@ FILES = ./ft_atoi.c \
 		./ft_clean_arr.c \
 		./ft_create_arr.c \
 		./ft_clean_int_arr.c \
+		./error.c \
 		./adding_minus.c \
 		./adding_plus.c \
 		./adding_precision_number.c \

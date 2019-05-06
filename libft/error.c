@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_len.c                                         :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amelikia <amelikia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/10 12:20:42 by amelikia          #+#    #+#             */
-/*   Updated: 2018/12/10 12:21:45 by amelikia         ###   ########.fr       */
+/*   Created: 2019/05/06 12:31:46 by knaumov           #+#    #+#             */
+/*   Updated: 2019/05/06 12:32:27 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-int		find_len(char *s)
+void		error(char *reason)
 {
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		while (s[i] && s[i] == ' ')
-			i++;
-		j++;
-		while (s[i] && s[i] != ' ')
-			i++;
-	}
-	return (j);
+	ft_printf("%sError: %s\n", CRED, reason);
+	exit(1);
 }

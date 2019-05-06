@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amelikia <amelikia@student.42.fr>          +#+  +:+       +#+        */
+/*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/10 12:21:29 by amelikia          #+#    #+#             */
-/*   Updated: 2019/04/24 19:53:53 by amelikia         ###   ########.fr       */
+/*   Created: 2019/05/06 12:41:30 by knaumov           #+#    #+#             */
+/*   Updated: 2019/05/06 12:41:31 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void	read_file(t_fdf *fdf, char *str)
 	matrix = NULL;
 	fdf->first->x = 0;
 	fd = open(str, O_RDONLY);
+	if (fd == -1)
+		error("Invalid file");
 	while (get_next_line(fd, &line) == 1)
 	{
 		matrix = list_append(matrix, line);

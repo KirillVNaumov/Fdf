@@ -67,9 +67,10 @@ void				print_figure(t_fdf *fdf);
 
 int					ft_list_size(t_list *list);
 t_list				*list_append(t_list *matrix, char *str);
-int					find_len(char *s);
+int					find_width(char *s);
 void				ft_clean_list(t_list **list);
-void				ft_clean_t_point_matrix(t_point	****arr, int height, int width);
+void				ft_clean_t_point_matrix(t_point	****arr, \
+											int height, int width);
 void				ft_clean_and_exit(t_fdf *fdf);
 
 #endif
