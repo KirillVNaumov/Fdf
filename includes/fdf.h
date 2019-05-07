@@ -60,6 +60,13 @@ void				save_data_in_stock(t_fdf *fdf);
 void				make_modified(t_fdf *fdf);
 void				printline(t_fdf *fdf);
 void				print_figure(t_fdf *fdf);
+int					check_ampl(t_fdf *fdf);
+void				ampl_plus(t_fdf *fdf);
+void				ampl_minus(t_fdf *fdf);
+int					check_zoom(t_fdf *fdf);
+void				zoom_plus(t_fdf *fdf);
+void				zoom_minus(t_fdf *fdf);
+void				draw_map(t_fdf *fdf);
 
 /*
 **	Utils

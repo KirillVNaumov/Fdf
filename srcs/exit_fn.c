@@ -12,88 +12,71 @@
 
 #include "fdf.h"
 
-void	zoom_plus(t_fdf *fdf)
+void		draw_map(t_fdf *fdf)
 {
-	int i;
-	int j;
+	int 	i;
+	int 	j;
 
+	ft_printf("----------------------------------------------------------------\n");
+	ft_printf("Z:\n");
 	i = 0;
 	while (i < fdf->height)
 	{
 		j = 0;
 		while (j < fdf->width)
 		{
-			fdf->xyz_stock[i][j]->x *= 1.3;
-			fdf->xyz_stock[i][j]->y *= 1.3;
-			fdf->xyz_stock[i][j]->z *= 1.1;
+			if (fdf->xyz_stock[i][j]->z == 0)
+				ft_printf("%s", CRED);
+			ft_printf("%3.3d ", fdf->xyz_stock[i][j]->z);
+			ft_printf("%s", CWHITE);
 			j++;
 		}
+		ft_printf("\n");
 		i++;
 	}
-}
-
-void	zoom_minus(t_fdf *fdf)
-{
-	int i;
-	int j;
-
+	ft_printf("\n");
+	ft_printf("Y:\n");
 	i = 0;
 	while (i < fdf->height)
 	{
 		j = 0;
 		while (j < fdf->width)
 		{
-			fdf->xyz_stock[i][j]->x /= 1.3;
-			fdf->xyz_stock[i][j]->y /= 1.3;
-			fdf->xyz_stock[i][j]->z /= 1.1;
+			if (fdf->xyz_stock[i][j]->y == 0)
+				ft_printf("%s", CRED);
+			ft_printf("%3.3d ", fdf->xyz_stock[i][j]->y);
+			ft_printf("%s", CWHITE);
 			j++;
 		}
+		ft_printf("\n");
 		i++;
 	}
-}
-
-void	apl_plus(t_fdf *fdf)
-{
-	int i;
-	int j;
-
+	ft_printf("\n");
+	ft_printf("X:\n");
 	i = 0;
 	while (i < fdf->height)
 	{
 		j = 0;
 		while (j < fdf->width)
 		{
-			fdf->xyz_stock[i][j]->z *= 1.1;
+			if (fdf->xyz_stock[i][j]->x == 0)
+				ft_printf("%s", CRED);
+			ft_printf("%3.3d ", fdf->xyz_stock[i][j]->x);
+			ft_printf("%s", CWHITE);
 			j++;
 		}
+		ft_printf("\n");
 		i++;
 	}
-}
-
-void	apl_minus(t_fdf *fdf)
-{
-	int i;
-	int j;
-
-	i = 0;
-	while (i < fdf->height)
-	{
-		j = 0;
-		while (j < fdf->width)
-		{
-			fdf->xyz_stock[i][j]->z /= 1.1;
-			j++;
-		}
-		i++;
-	}
+	ft_printf("----------------------------------------------------------------\n");
 }
 
 int		exit_fn(int key, t_fdf *fdf, int i)
 {
 	(key == 27) ? zoom_minus(fdf) : (i = 0);
 	(key == 24) ? zoom_plus(fdf) : (i = 0);
-	(key == 25) ? apl_plus(fdf) : (i = 0);
-	(key == 29) ? apl_minus(fdf) : (i = 0);
+	(key == 25) ? ampl_plus(fdf) : (i = 0);
+	(key == 29) ? ampl_minus(fdf) : (i = 0);
 	if (key == 42 || key == 126 || key == 125 || key == 123 || \
 		key == 124 || key == 27 || key == 25 || key == 24 || key == 29)
 		mlx_clear_window(fdf->mlx, fdf->win);

@@ -7,6 +7,8 @@ SRCS =	./srcs/assign_to_zero.c \
 		./srcs/exit_fn.c \
 		./srcs/fdf.c \
 		./srcs/line_drawing.c \
+		./srcs/manage_zoom.c \
+		./srcs/manage_amplitude.c \
 		./srcs/make_modified.c \
 		./srcs/move_to_int.c \
 		./srcs/read_file.c \
