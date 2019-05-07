@@ -21,8 +21,10 @@ void	print_border_lines(t_fdf *fdf)
 	{
 		fdf->first->x = fdf->xyz_modif[i][fdf->width - 1]->x;
 		fdf->first->y = fdf->xyz_modif[i][fdf->width - 1]->y;
+		fdf->first->z = fdf->xyz_stock[i][fdf->width - 1]->z;
 		fdf->second->x = fdf->xyz_modif[i + 1][fdf->width - 1]->x;
 		fdf->second->y = fdf->xyz_modif[i + 1][fdf->width - 1]->y;
+		fdf->second->z = fdf->xyz_stock[i + 1][fdf->width - 1]->z;
 		printline(fdf);
 		i++;
 	}
@@ -31,8 +33,10 @@ void	print_border_lines(t_fdf *fdf)
 	{
 		fdf->first->x = fdf->xyz_modif[fdf->height - 1][i]->x;
 		fdf->first->y = fdf->xyz_modif[fdf->height - 1][i]->y;
+		fdf->first->z = fdf->xyz_stock[fdf->height - 1][i]->z;
 		fdf->second->x = fdf->xyz_modif[fdf->height - 1][i + 1]->x;
 		fdf->second->y = fdf->xyz_modif[fdf->height - 1][i + 1]->y;
+		fdf->second->z = fdf->xyz_stock[fdf->height - 1][i]->z;
 		printline(fdf);
 		i++;
 	}
@@ -51,11 +55,14 @@ void	print_figure(t_fdf *fdf)
 		{
 			fdf->first->x = fdf->xyz_modif[i][j]->x;
 			fdf->first->y = fdf->xyz_modif[i][j]->y;
+			fdf->first->z = fdf->xyz_stock[i][j]->z;
 			fdf->second->x = fdf->xyz_modif[i + 1][j]->x;
 			fdf->second->y = fdf->xyz_modif[i + 1][j]->y;
+			fdf->second->z = fdf->xyz_stock[i + 1][j]->z;
 			printline(fdf);
 			fdf->second->x = fdf->xyz_modif[i][j + 1]->x;
 			fdf->second->y = fdf->xyz_modif[i][j + 1]->y;
+			fdf->second->z = fdf->xyz_stock[i][j + 1]->z;
 			printline(fdf);
 			j++;
 		}

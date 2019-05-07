@@ -14,9 +14,9 @@
 
 void	assign_to_zero(t_fdf *fdf)
 {
-	fdf->first = (t_double_point *)malloc(sizeof(t_double_point));
-	fdf->second = (t_double_point *)malloc(sizeof(t_double_point));
-	fdf->angle = (t_double_point *)malloc(sizeof(t_double_point));
+	fdf->first = (t_point *)malloc(sizeof(t_point));
+	fdf->second = (t_point *)malloc(sizeof(t_point));
+	fdf->angle = (t_point *)malloc(sizeof(t_point));
 	fdf->first->x = 0;
 	fdf->first->y = 0;
 	fdf->second->x = 0;

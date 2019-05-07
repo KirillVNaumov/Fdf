@@ -26,27 +26,21 @@ typedef struct		s_list
 
 typedef struct		s_point
 {
-	int			x;
-	int			y;
-	int			z;
+	double			x;
+	double			y;
+	double			z;
 }					t_point;
-
-typedef struct		s_double_point
-{
-	double		x;
-	double		y;
-}					t_double_point;
 
 typedef struct		s_fdf
 {
 	void			*mlx;
 	void			*win;
-	t_double_point	*first;
-	t_double_point	*second;
+	t_point			*first;
+	t_point			*second;
 	int				**num;
 	int				width;
 	int				height;
-	t_double_point	*angle;
+	t_point			*angle;
 	double			color_incr;
 	t_point			***xyz_stock;
 	t_point			***xyz_modif;
