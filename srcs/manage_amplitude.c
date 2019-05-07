@@ -25,7 +25,7 @@ int			check_ampl(t_fdf *fdf)
 	return (1);
 }
 
-double		identify_increment(t_fdf *fdf)
+double		identify_increment_for_ampl(t_fdf *fdf)
 {
 	int 	i;
 	int 	j;
@@ -52,7 +52,7 @@ void		ampl_plus(t_fdf *fdf)
 	double	increment;
 
 	i = 0;
-	increment = identify_increment(fdf);
+	increment = identify_increment_for_ampl(fdf);
 	while (i < fdf->height)
 	{
 		j = 0;

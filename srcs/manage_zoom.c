@@ -11,11 +11,11 @@ int			check_zoom(t_fdf *fdf)
 		j = 0;
 		while (j < fdf->width)
 		{
-			if (fdf->xyz_stock[i][j]->x / 1.3 == 0)
+			if (fdf->xyz_stock[i][j]->x / 1.3 < 10)
 				return (-1);
-			if (fdf->xyz_stock[i][j]->y / 1.3 == 0)
+			if (fdf->xyz_stock[i][j]->y / 1.3 < 10)
 				return (-1);
-			if (fdf->xyz_stock[i][j]->z / 1.1 == 0 && fdf->xyz_stock[i][j]->z != 0)
+			if (fdf->xyz_stock[i][j]->z / 1.1 < 10 && fdf->xyz_stock[i][j]->z != 0)
 				return (-1);
 			j++;
 		}
@@ -24,7 +24,7 @@ int			check_zoom(t_fdf *fdf)
 	return (1);
 }
 
-// double		identify_increment_for_z(t_fdf *fdf)
+// double		identify_increment_for_zoom(t_fdf *fdf)
 // {
 // 	int 	i;
 // 	int 	j;
@@ -37,9 +37,9 @@ int			check_zoom(t_fdf *fdf)
 // 		{
 // 			if (fdf->xyz_stock[i][j]->z != 0 && fdf->xyz_stock[i][j]->z < 10)
 // 				return (2);
-// 			if (fdf->xyz_stock[i][j]->z != 0 && fdf->xyz_stock[i][j]->z < 10)
+// 			if (fdf->xyz_stock[i][j]->x / 1.3 < 1)
 // 				return (2);
-// 			if (fdf->xyz_stock[i][j]->z != 0 && fdf->xyz_stock[i][j]->z < 10)
+// 			if (fdf->xyz_stock[i][j]->y / 1.3 < 1)
 // 				return (2);
 // 			j++;
 // 		}
@@ -48,10 +48,10 @@ int			check_zoom(t_fdf *fdf)
 // 	return (1.1);
 // }
 
-void	zoom_plus(t_fdf *fdf)
+void		zoom_plus(t_fdf *fdf)
 {
-	int i;
-	int j;
+	int 	i;
+	int 	j;
 
 	ft_printf("Entered zoom_plus\n");
 	i = 0;
@@ -62,7 +62,7 @@ void	zoom_plus(t_fdf *fdf)
 		{
 			fdf->xyz_stock[i][j]->x *= 1.3;
 			fdf->xyz_stock[i][j]->y *= 1.3;
-			fdf->xyz_stock[i][j]->z *= 1.1;
+			fdf->xyz_stock[i][j]->z *= 1.3;
 			j++;
 		}
 		i++;
@@ -90,7 +90,7 @@ void	zoom_minus(t_fdf *fdf)
 		{
 			fdf->xyz_stock[i][j]->x /= 1.3;
 			fdf->xyz_stock[i][j]->y /= 1.3;
-			fdf->xyz_stock[i][j]->z /= 1.1;
+			fdf->xyz_stock[i][j]->z /= 1.3;
 			j++;
 		}
 		i++;
