@@ -32,10 +32,10 @@ void	print_low(t_fdf *fdf, t_point *first, \
 	d = 2 * diff->y - diff->x;
 	point->y = first->y;
 	point->x = first->x - 1;
-	// ft_printf("diff->z = %d\n", diff->z);
+	printf("diff->z = %.1f\n", diff->z);
 	color_increment = diff->z / (second->y - point->y);
-	// ft_printf("increment color = %d\n", color_increment);
-	// color_increment = 280;
+	printf("increment color = %.1f\n", color_increment);
+	color_increment = 280;
 	while (++point->x < second->x)
 	{
 		mlx_pixel_put(fdf->mlx, fdf->win, (int)point->x, (int)point->y, minimum_altitude);
@@ -68,10 +68,10 @@ void	print_high(t_fdf *fdf, t_point *first, \
 	d = 2 * diff->x - diff->y;
 	point->y = first->y - 1;
 	point->x = first->x;
-	// ft_printf("diff->z = %d\n", diff->z);
+	printf("diff->z = %.1f\n", diff->z);
 	color_increment = diff->z / (second->y - point->y);
-	// ft_printf("increment color = %d\n", color_increment);
-	// color_increment = 280;
+	printf("increment color = %.1f\n", color_increment);
+	color_increment = 280;
 	while (++point->y < second->y)
 	{
 		mlx_pixel_put(fdf->mlx, fdf->win, (int)point->x, (int)point->y, minimum_altitude);
@@ -92,9 +92,9 @@ void	printline(t_fdf *fdf)
 {
 	int		minimum_altitude;
 
-	// ft_printf("\n");
-	// ft_printf("first->z = %d\n", fdf->first->z);
-	// ft_printf("second->z = %d\n", fdf->second->z);
+	printf("\n");
+	printf("first->z = %.1f\n", fdf->first->z);
+	printf("second->z = %.1f\n", fdf->second->z);
 
 	minimum_altitude = (fdf->first->z > fdf->second->z ? fdf->second->z : fdf->first->z);
 	if (ft_abs(fdf->second->y - fdf->first->y) < \
@@ -112,5 +112,5 @@ void	printline(t_fdf *fdf)
 		else
 			print_high(fdf, fdf->first, fdf->second, minimum_altitude * 900000);
 	}
-	// ft_printf("\n");
+	printf("\n");
 }

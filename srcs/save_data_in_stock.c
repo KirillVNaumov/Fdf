@@ -12,18 +12,36 @@
 
 #include "fdf.h"
 
+void	print_stock(t_point ***stock)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (stock[i])
+	{
+		j = 0;
+		while (stock[i][j])
+		{
+			printf("%3.0f ", stock[i][j]->z);
+			++j;
+		}
+		printf("\n");
+		++i;
+	}
+}
+
 void	save_data_in_stock(t_fdf *fdf)
 {
 	int i;
 	int j;
 
 	i = 0;
-	j = 0;
-	fdf->xyz_stock = (t_point ***)malloc(sizeof(t_point**) * (fdf->height + 1));
+	fdf->xyz_stock = (t_point ***)malloc(sizeof(t_point **) * (fdf->height + 1));
 	fdf->xyz_stock[fdf->height] = NULL;
 	while (i < fdf->height)
 	{
-		fdf->xyz_stock[i] = (t_point **)malloc(sizeof(t_point*) * (fdf->width + 1));
+		fdf->xyz_stock[i] = (t_point **)malloc(sizeof(t_point *) * (fdf->width + 1));
 		j = 0;
 		while (j < fdf->width)
 		{
@@ -34,12 +52,12 @@ void	save_data_in_stock(t_fdf *fdf)
 			fdf->xyz_stock[i][j]->x *= 30;
 			fdf->xyz_stock[i][j]->y *= 30;
 			fdf->xyz_stock[i][j]->z *= 10;
-			ft_printf("%2d ", fdf->xyz_stock[i][j]->z);
+			// printf("%3.0f ", fdf->xyz_stock[i][j]->z);
 			j++;
 		}
-		ft_printf("\n");
+		// printf("\n");
 		fdf->xyz_stock[i][j] = NULL;
 		i++;
 	}
-	print_map_z(fdf);
+	// print_stock(fdf->xyz_stock);
 }

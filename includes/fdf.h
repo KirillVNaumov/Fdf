@@ -18,6 +18,8 @@
 # include <fcntl.h>
 # include <math.h>
 
+#include <stdio.h>
+
 typedef struct		s_list
 {
 	char			*line;
@@ -75,5 +77,6 @@ void				ft_clean_t_point_matrix(t_point	****arr, \
 void				ft_clean_and_exit(t_fdf *fdf);
 
 void	print_map_z(t_fdf *fdf);
+void	print_stock(t_point ***stock);
 
 #endif
