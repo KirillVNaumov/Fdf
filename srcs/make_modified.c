@@ -33,9 +33,10 @@ void	make_modified(t_fdf *fdf)
 			fdf->xyz_modif[i][j]->y = 150 + (((fdf->xyz_stock[i][j]->x +\
 				fdf->xyz_stock[i][j]->y) * sin(fdf->angle->y))\
 				- fdf->xyz_stock[i][j]->z);
+			fdf->xyz_modif[i][j]->z = fdf->xyz_stock[i][j]->z;
 			j++;
 		}
-		fdf->xyz_stock[i][j] = NULL;
+		fdf->xyz_modif[i][j] = NULL;
 		i++;
 	}
 }

@@ -19,24 +19,27 @@ void	save_data_in_stock(t_fdf *fdf)
 
 	i = 0;
 	j = 0;
-	fdf->xyz_stock = malloc(sizeof(t_point**) * (fdf->height + 1));
+	fdf->xyz_stock = (t_point ***)malloc(sizeof(t_point**) * (fdf->height + 1));
 	fdf->xyz_stock[fdf->height] = NULL;
 	while (i < fdf->height)
 	{
-		fdf->xyz_stock[i] = malloc(sizeof(t_point*) * (fdf->width + 1));
+		fdf->xyz_stock[i] = (t_point **)malloc(sizeof(t_point*) * (fdf->width + 1));
 		j = 0;
 		while (j < fdf->width)
 		{
-			fdf->xyz_stock[i][j] = malloc(sizeof(t_point));
+			fdf->xyz_stock[i][j] = (t_point *)malloc(sizeof(t_point));
 			fdf->xyz_stock[i][j]->x = j + 1;
 			fdf->xyz_stock[i][j]->y = i + 1;
 			fdf->xyz_stock[i][j]->z = fdf->num[i][j];
 			fdf->xyz_stock[i][j]->x *= 30;
 			fdf->xyz_stock[i][j]->y *= 30;
 			fdf->xyz_stock[i][j]->z *= 10;
+			ft_printf("%2d ", fdf->xyz_stock[i][j]->z);
 			j++;
 		}
+		ft_printf("\n");
 		fdf->xyz_stock[i][j] = NULL;
 		i++;
 	}
+	print_map_z(fdf);
 }

@@ -12,6 +12,25 @@
 
 #include "fdf.h"
 
+void	print_map_z(t_fdf *fdf)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < fdf->height - 1)
+	{
+		j = 0;
+		while (j < fdf->width - 1)
+		{
+			ft_printf("%2d ", fdf->xyz_stock[i][j]->z);
+			j++;
+		}
+		ft_printf("\n");
+		i++;
+	}
+}
+
 void	print_border_lines(t_fdf *fdf)
 {
 	int i;
@@ -21,10 +40,12 @@ void	print_border_lines(t_fdf *fdf)
 	{
 		fdf->first->x = fdf->xyz_modif[i][fdf->width - 1]->x;
 		fdf->first->y = fdf->xyz_modif[i][fdf->width - 1]->y;
-		fdf->first->z = fdf->xyz_stock[i][fdf->width - 1]->z;
+		fdf->first->z = fdf->xyz_modif[i][fdf->width - 1]->z;
+		ft_printf("first border down (z):        %d\n", fdf->xyz_modif[i][fdf->width - 1]->z);
 		fdf->second->x = fdf->xyz_modif[i + 1][fdf->width - 1]->x;
 		fdf->second->y = fdf->xyz_modif[i + 1][fdf->width - 1]->y;
-		fdf->second->z = fdf->xyz_stock[i + 1][fdf->width - 1]->z;
+		fdf->second->z = fdf->xyz_modif[i + 1][fdf->width - 1]->z;
+		ft_printf("second border down (z): %d\n", fdf->xyz_modif[i + 1][fdf->width - 1]->z);
 		printline(fdf);
 		i++;
 	}
@@ -33,10 +54,12 @@ void	print_border_lines(t_fdf *fdf)
 	{
 		fdf->first->x = fdf->xyz_modif[fdf->height - 1][i]->x;
 		fdf->first->y = fdf->xyz_modif[fdf->height - 1][i]->y;
-		fdf->first->z = fdf->xyz_stock[fdf->height - 1][i]->z;
+		fdf->first->z = fdf->xyz_modif[fdf->height - 1][i]->z;
+		ft_printf("first border right  (z):        %d\n", fdf->xyz_modif[fdf->height - 1][i]->z);
 		fdf->second->x = fdf->xyz_modif[fdf->height - 1][i + 1]->x;
 		fdf->second->y = fdf->xyz_modif[fdf->height - 1][i + 1]->y;
-		fdf->second->z = fdf->xyz_stock[fdf->height - 1][i]->z;
+		fdf->second->z = fdf->xyz_modif[fdf->height - 1][i + 1]->z;
+		ft_printf("second border right (z): %d\n", fdf->xyz_modif[fdf->height - 1][i + 1]->z);
 		printline(fdf);
 		i++;
 	}
@@ -55,17 +78,22 @@ void	print_figure(t_fdf *fdf)
 		{
 			fdf->first->x = fdf->xyz_modif[i][j]->x;
 			fdf->first->y = fdf->xyz_modif[i][j]->y;
-			fdf->first->z = fdf->xyz_stock[i][j]->z;
+			fdf->first->z = fdf->xyz_modif[i][j]->z;
+			ft_printf("first  (z):        %d\n", fdf->xyz_modif[i][j]->z);
+			ft_printf("first  (z):        %d\n", fdf->first->z);
 			fdf->second->x = fdf->xyz_modif[i + 1][j]->x;
 			fdf->second->y = fdf->xyz_modif[i + 1][j]->y;
-			fdf->second->z = fdf->xyz_stock[i + 1][j]->z;
+			fdf->second->z = fdf->xyz_modif[i + 1][j]->z;
+			ft_printf("second (z) bottom: %d\n", fdf->xyz_modif[i + 1][j]->z);
 			printline(fdf);
 			fdf->second->x = fdf->xyz_modif[i][j + 1]->x;
 			fdf->second->y = fdf->xyz_modif[i][j + 1]->y;
-			fdf->second->z = fdf->xyz_stock[i][j + 1]->z;
+			fdf->second->z = fdf->xyz_modif[i][j + 1]->z;
+			ft_printf("second (z) right:  %d\n", fdf->xyz_modif[i][j + 1]->z);
 			printline(fdf);
 			j++;
 		}
+		ft_printf("\n");
 		i++;
 	}
 	print_border_lines(fdf);
@@ -92,6 +120,7 @@ void	read_file(t_fdf *fdf, char *str)
 	save_data_in_stock(fdf);
 	ft_clean_int_arr(&fdf->num);
 	make_modified(fdf);
+	print_map_z(fdf);
 	print_figure(fdf);
 	ft_clean_t_point_matrix(&fdf->xyz_modif, fdf->height, fdf->width);
 	close(fd);

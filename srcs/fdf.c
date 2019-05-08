@@ -20,6 +20,7 @@ int		main(int argc, char **argv)
 {
 	t_fdf fdf;
 
+	ft_bzero(&fdf, sizeof(t_fdf));
 	assign_to_zero(&fdf);
 	fdf.mlx = mlx_init();
 	fdf.win = mlx_new_window(fdf.mlx, 1024, 1024, "FDF");
