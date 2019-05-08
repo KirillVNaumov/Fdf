@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   manage_amplitude.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/05/08 16:06:16 by knaumov           #+#    #+#             */
+/*   Updated: 2019/05/08 16:06:17 by knaumov          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void		ampl_plus(t_fdf *fdf)
 {
-	int 	i;
-	int 	j;
+	int		i;
+	int		j;
 	double	increment;
 
 	i = 0;
@@ -21,10 +33,10 @@ void		ampl_plus(t_fdf *fdf)
 	}
 }
 
-void	ampl_minus(t_fdf *fdf)
+void		ampl_minus(t_fdf *fdf)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (i < fdf->height)

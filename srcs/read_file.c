@@ -16,8 +16,8 @@ void	print_border_lines(t_fdf *fdf)
 {
 	int i;
 
-	i = 0;
-	while (i < fdf->height - 1)
+	i = -1;
+	while (++i < fdf->height - 1)
 	{
 		fdf->first->x = fdf->xyz_modif[i][fdf->width - 1]->x;
 		fdf->first->y = fdf->xyz_modif[i][fdf->width - 1]->y;
@@ -26,10 +26,9 @@ void	print_border_lines(t_fdf *fdf)
 		fdf->second->y = fdf->xyz_modif[i + 1][fdf->width - 1]->y;
 		fdf->second->z = fdf->xyz_modif[i + 1][fdf->width - 1]->z;
 		printline(fdf);
-		i++;
 	}
-	i = 0;
-	while (i < fdf->width - 1)
+	i = -1;
+	while (++i < fdf->width - 1)
 	{
 		fdf->first->x = fdf->xyz_modif[fdf->height - 1][i]->x;
 		fdf->first->y = fdf->xyz_modif[fdf->height - 1][i]->y;
@@ -38,7 +37,6 @@ void	print_border_lines(t_fdf *fdf)
 		fdf->second->y = fdf->xyz_modif[fdf->height - 1][i + 1]->y;
 		fdf->second->z = fdf->xyz_modif[fdf->height - 1][i + 1]->z;
 		printline(fdf);
-		i++;
 	}
 }
 

@@ -18,8 +18,6 @@
 # include <fcntl.h>
 # include <math.h>
 
-#include <stdio.h>
-
 typedef struct		s_list
 {
 	char			*line;
@@ -39,10 +37,10 @@ typedef struct		s_fdf
 	void			*win;
 	t_point			*first;
 	t_point			*second;
+	t_point			*angle;
 	int				**num;
 	int				width;
 	int				height;
-	t_point			*angle;
 	double			color_incr;
 	t_point			***xyz_stock;
 	t_point			***xyz_modif;
