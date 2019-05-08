@@ -12,25 +12,6 @@
 
 #include "fdf.h"
 
-void	print_stock(t_point ***stock)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (stock[i])
-	{
-		j = 0;
-		while (stock[i][j])
-		{
-			printf("%3.0f ", stock[i][j]->z);
-			++j;
-		}
-		printf("\n");
-		++i;
-	}
-}
-
 void	save_data_in_stock(t_fdf *fdf)
 {
 	int i;
@@ -52,12 +33,9 @@ void	save_data_in_stock(t_fdf *fdf)
 			fdf->xyz_stock[i][j]->x *= 30;
 			fdf->xyz_stock[i][j]->y *= 30;
 			fdf->xyz_stock[i][j]->z *= 10;
-			// printf("%3.0f ", fdf->xyz_stock[i][j]->z);
 			j++;
 		}
-		// printf("\n");
 		fdf->xyz_stock[i][j] = NULL;
 		i++;
 	}
-	// print_stock(fdf->xyz_stock);
 }

@@ -12,65 +12,6 @@
 
 #include "fdf.h"
 
-void		draw_map(t_fdf *fdf)
-{
-	int 	i;
-	int 	j;
-
-	ft_printf("----------------------------------------------------------------\n");
-	ft_printf("Z:\n");
-	i = 0;
-	while (i < fdf->height)
-	{
-		j = 0;
-		while (j < fdf->width)
-		{
-			if (fdf->xyz_stock[i][j]->z == 0)
-				ft_printf("%s", CRED);
-			ft_printf("%3.3d ", fdf->xyz_stock[i][j]->z);
-			ft_printf("%s", CWHITE);
-			j++;
-		}
-		ft_printf("\n");
-		i++;
-	}
-	ft_printf("\n");
-	ft_printf("Y:\n");
-	i = 0;
-	while (i < fdf->height)
-	{
-		j = 0;
-		while (j < fdf->width)
-		{
-			if (fdf->xyz_stock[i][j]->y == 0)
-				ft_printf("%s", CRED);
-			ft_printf("%3.3d ", fdf->xyz_stock[i][j]->y);
-			ft_printf("%s", CWHITE);
-			j++;
-		}
-		ft_printf("\n");
-		i++;
-	}
-	ft_printf("\n");
-	ft_printf("X:\n");
-	i = 0;
-	while (i < fdf->height)
-	{
-		j = 0;
-		while (j < fdf->width)
-		{
-			if (fdf->xyz_stock[i][j]->x == 0)
-				ft_printf("%s", CRED);
-			ft_printf("%3.3d ", fdf->xyz_stock[i][j]->x);
-			ft_printf("%s", CWHITE);
-			j++;
-		}
-		ft_printf("\n");
-		i++;
-	}
-	ft_printf("----------------------------------------------------------------\n");
-}
-
 int		exit_fn(int key, t_fdf *fdf, int i)
 {
 	(key == 27) ? zoom_minus(fdf) : (i = 0);
