@@ -6,7 +6,7 @@
 /*   By: knaumov <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 12:41:30 by knaumov           #+#    #+#             */
-/*   Updated: 2019/05/06 12:41:31 by knaumov          ###   ########.fr       */
+/*   Updated: 2019/05/08 23:48:25 by knaumov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,16 +69,19 @@ void	print_figure(t_fdf *fdf)
 	print_border_lines(fdf);
 }
 
-void	read_file(t_fdf *fdf, char *str)
+void	read_file(t_fdf *fdf, int fd)
 {
-	int		fd;
 	t_list	*list;
 	char	*line;
 
 	list = NULL;
-	fd = open(str, O_RDWR);
 	if (fd == -1)
+	{
+		free(fdf->first);
+		free(fdf->second);
+		free(fdf->angle);
 		error("Invalid file");
+	}
 	while (get_next_line(fd, &line) == 1)
 	{
 		list = add_list(list, line);
