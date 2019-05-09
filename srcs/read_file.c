@@ -72,21 +72,20 @@ void	print_figure(t_fdf *fdf)
 void	read_file(t_fdf *fdf, char *str)
 {
 	int		fd;
-	t_list	*matrix;
+	t_list	*list;
 	char	*line;
 
-	matrix = NULL;
-	fdf->first->x = 0;
-	fd = open(str, O_RDONLY);
+	list = NULL;
+	fd = open(str, O_RDWR);
 	if (fd == -1)
 		error("Invalid file");
 	while (get_next_line(fd, &line) == 1)
 	{
-		matrix = list_append(matrix, line);
-		ft_strdel(&line);
+		list = add_list(list, line);
+		free(line);
 	}
-	move_to_int(matrix, fdf);
-	ft_clean_list(&matrix);
+	move_to_int(&list, fdf);
+	ft_clean_list(&list);
 	save_data_in_stock(fdf);
 	ft_clean_int_arr(&fdf->num);
 	make_modified(fdf);

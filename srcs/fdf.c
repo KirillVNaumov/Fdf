@@ -26,6 +26,13 @@ int		main(int argc, char **argv)
 	fdf.win = mlx_new_window(fdf.mlx, 1024, 1024, "FDF");
 	if (argc == 2)
 		read_file(&fdf, argv[1]);
+	else
+	{
+		free(fdf.first);
+		free(fdf.second);
+		free(fdf.angle);
+		error("Wrong number of arguments");
+	}
 	mlx_key_hook(fdf.win, exit_fn, &fdf);
 	mlx_loop(fdf.mlx);
 }

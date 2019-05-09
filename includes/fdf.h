@@ -49,7 +49,7 @@ typedef struct		s_fdf
 int					exit_fn(int key, t_fdf *fdf, int i);
 void				assign_to_zero(t_fdf *fdf);
 void				read_file(t_fdf *fdf, char *str);
-void				move_to_int(t_list *matrix, t_fdf *fdf);
+void				move_to_int(t_list **list, t_fdf *fdf);
 void				save_data_in_stock(t_fdf *fdf);
 void				make_modified(t_fdf *fdf);
 void				printline(t_fdf *fdf);
@@ -67,7 +67,7 @@ void				draw_map(t_fdf *fdf);
 */
 
 int					ft_list_size(t_list *list);
-t_list				*list_append(t_list *matrix, char *str);
+t_list				*add_list(t_list *list, char *str);
 int					find_width(char *s);
 void				ft_clean_list(t_list **list);
 void				ft_clean_t_point_matrix(t_point	****arr, \

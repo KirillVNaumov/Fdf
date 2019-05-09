@@ -12,29 +12,21 @@
 
 #include "fdf.h"
 
-t_list		*create_list(t_list *matrix, char *str)
+t_list		*add_list(t_list *list, char *data)
 {
-	matrix = malloc(sizeof(t_list));
-	matrix->line = ft_strdup(str);
-	matrix->next = NULL;
-	return (matrix);
-}
-
-t_list		*list_append(t_list *matrix, char *str)
-{
-	t_list	*tmp;
+	t_list	*begin;
 	t_list	*new;
 
-	tmp = matrix;
-	if (matrix == NULL)
-		return (create_list(matrix, str));
-	while (matrix->next)
-		matrix = matrix->next;
-	new = malloc(sizeof(t_list));
-	new->line = ft_strdup(str);
+	new = (t_list *)malloc(sizeof(t_list));
+	new->line = ft_strdup(data);
 	new->next = NULL;
-	matrix->next = new;
-	return (tmp);
+	if (!list)
+		return (new);
+	begin = list;
+	while (list->next)
+		list = list->next;
+	list->next = new;
+	return (begin);
 }
 
 int			ft_list_size(t_list *list)
